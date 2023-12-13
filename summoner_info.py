@@ -1,3 +1,8 @@
+from LolApiClient import LolApiClient
+from get_api_key import get_api_key
+
+
+
 class summoner_info():
     def __init__(self, id, accountId, puuId, name, profileIconId, revisionDate, summonerLevel):
         self.id = id
@@ -10,13 +15,18 @@ class summoner_info():
         
 
 
+    def match_info(self, id):
+        pass
 
 
-    {'id': 'xTB87xjtrPtVn4ingEvUiFzr7ACzmsC60ARg56c20MjaBjdUlhQ5v_yUuA',
-    'accountId': 'LDKe6DCIvGvdMbgmBgyAjMu5z6k757237EHIcVmUhF0Q7cWiWhXzgz1X',
-    'puuid': '4ZNXv69ey1-VkkU5nwZzTLcEEYxOOV3Lnv6CY-82GDMfs1oGsazcgdaGzCqXPeQJIXusQp8e39IPBw',
-    'name': 'TurboGnome', 'profileIconId': 687,
-    'revisionDate': 1702475404333, 'summonerLevel': 51}
+client = LolApiClient(get_api_key(), "EUW1")
+id, accountId, puuid, name, profileIconId, revisionDate, summonerlevel = client.get_encrypted_summoner_name("TurboGnome")
+new_summoner_info = summoner_info(id, accountId, puuid, name, profileIconId, revisionDate, summonerlevel)
+print(new_summoner_info.__dict__)
+
+
+
+
 
 
     

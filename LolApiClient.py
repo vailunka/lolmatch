@@ -1,5 +1,5 @@
 import requests
-
+from get_api_key import *
 class LolApiClient():
 
     def __init__(self, api_key, region) -> None:
@@ -22,41 +22,17 @@ class LolApiClient():
         """This function return player info"""
         r = requests.get(self.build_url(summoner_name))  
         info = r.json()
-        encrypted_summoner_name = info["id"]
-        puuid = info["puuid"]
-        print(info)
-        print(encrypted_summoner_name)
-        return encrypted_summoner_name
+        return info["id"], info["accountId"], info["puuid"], info["name"], info["profileIconId"], info["revisionDate"], info["summonerLevel"]
 
-
-    def get_account_id(self):
-        """This function return player info"""
-        
-        r = requests.get(api_url_key)  
-        info = r.json()
-        account_id = info["accountId"]
-        return account_id
 
     def game_info(self):
         pass
 
-    def api_key(self):
-        file1 = open('api_key.txt', 'r')
-        Lines = file1.readlines()
-        print(Lines)
-        return Lines
-
-
-
-def get_api_key():
-    file1 = open('api_key.txt', 'r')
-    Lines = file1.readlines()
-    Lines = Lines[0]
-    return Lines
+    
 
 client = LolApiClient(get_api_key(), "EUW1")
-client.get_encrypted_summoner_name("TurboGnome")
+print(client.get_encrypted_summoner_name("TurboGnome"))
 
-get_api_key()
+
 
 
