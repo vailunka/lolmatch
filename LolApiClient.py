@@ -40,10 +40,23 @@ class LolApiClient():
     def game_info(self):
         pass
 
+    def api_key(self):
+        file1 = open('api_key.txt', 'r')
+        Lines = file1.readlines()
+        print(Lines)
+        return Lines
 
 
-client = LolApiClient("", "EUW1")
+
+def get_api_key():
+    file1 = open('api_key.txt', 'r')
+    Lines = file1.readlines()
+    Lines = Lines[0]
+    return Lines
+
+client = LolApiClient(get_api_key(), "EUW1")
 client.get_encrypted_summoner_name("TurboGnome")
 
+get_api_key()
 
 
