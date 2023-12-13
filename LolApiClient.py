@@ -6,7 +6,7 @@ class LolApiClient():
         self.api_key = api_key
         self.region = region
 
-    #api_key = "RGAPI-46c69482-c592-4281-9df5-ac669b0c7390"
+    #api_key = ""
     #testi_region = "euw1"
     #testi_summoner_name = "TurboGnome"
 
@@ -42,7 +42,7 @@ class LolApiClient():
 
 
 
-client = LolApiClient("RGAPI-46c69482-c592-4281-9df5-ac669b0c7390", "EUW1")
+client = LolApiClient("", "EUW1")
 client.get_encrypted_summoner_name("TurboGnome")
 
 
